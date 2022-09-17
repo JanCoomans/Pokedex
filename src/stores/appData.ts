@@ -18,7 +18,7 @@ export const pokemonStore = defineStore({
       details: false,
       pokedex: 'default'
     },
-    detailsId: '',
+    activeId: Number
   }),
   actions: {
     toggleSortScreen() {
@@ -100,6 +100,9 @@ export const pokemonStore = defineStore({
     getPokedexFocus: (state) => {
       return state.screenFocus.pokedex
     },
+    getActivePokemon: (state) => {
+      return state.pokemonList.find(p => p.id === state.activeId);
+    }
   },
 })
 
