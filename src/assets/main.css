@@ -1,0 +1,179 @@
+@import "./base.css";
+
+/*
+    z-index overvieuw:
+    ------------------
+    Pokédex: 0
+    Pokédex sort overlay: 1
+    Team && Favourites: 10-20 (they switch)
+    Pokemon details: 30
+*/
+
+/*------ GENERAL -------*/
+.h-fit{
+    height: fit-content;
+}
+
+.mt-5px, .my-5px{
+    margin-top: 5px;
+}
+
+.mb-5px, .my-5px{
+    margin-bottom: 5px;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.btn-set{
+    height: 44px;
+    width: 100%;
+    border-radius: 50px;
+
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    color: var(--white);
+    background: var(--color-dark);
+}
+
+/*------ FONT TYPES -------*/
+.text-gradient-green{
+    background: -webkit-linear-gradient(#65CB9A 0%, #15D0DC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Titles */
+.title-dark {
+    color: var(--color-dark);
+}
+
+.title-light {
+    color: var(--white);
+}
+
+.title-dark,
+.title-light {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+}
+
+/* Pokemon name text */
+.sub-title {
+    font-weight: 700;
+    font-size: 17px;
+    line-height: 20px;
+    color: var(--black);
+}
+
+/* Sub-title text */
+.small-title {
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+/* Muted text */
+.muted {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: var(--color-muted);
+}
+
+/* Text from sorting menu options */
+.sort-text{
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: var(--black);
+}
+
+/* Pokemon type text */
+.pokemon-type {
+    text-transform: capitalize;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: var(--white);
+
+    border-radius: 100px;
+    padding: 3px 10px 5px 10px;
+}
+
+.pokemon-type + .pokemon-type{
+    margin-left: 5px;
+}
+
+/*------ TYPE COLORS ------*/
+.grass {
+    background: var(--type-grass);
+}
+.poison {
+    background: var(--type-poison);
+}
+
+.water {
+    background: var(--type-water);
+}
+
+.ghost {
+    background: var(--type-ghost);
+}
+
+.normal {
+    background: var(--type-normal);
+}
+
+.fire {
+    background: var(--type-fire);
+}
+
+.psychic {
+    background: var(--type-psychic);
+}
+
+.fairy {
+    background: var(--type-fairy);
+}
+
+.flying {
+    background: var(--type-flying);
+}
+
+.bug {
+    background: var(--type-bug);
+}
+
+.ground {
+    background: var(--type-ground);
+}
+
+.rock {
+    background: var(--type-rock);
+}
+
+.electric {
+    background: var(--type-electric);
+}
+
+.fighting {
+    background: var(--type-fighting);
+}
+
+.steel {
+    background: var(--type-steel);
+}
+
+.ice {
+    background: var(--type-ice);
+}
+
+.dragon {
+    background: var(--type-dragon);
+}

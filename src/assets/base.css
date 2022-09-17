@@ -1,0 +1,45 @@
+:root {
+  /**/
+  --white: #FFF;
+  --lighter-gray: #F9F9F9;
+  --bg-searchbar: #EFF0F1;
+  --bg-muted: rgba(255, 255, 255, 0.4);
+  --bg-close-btn: #D8DBE3;
+  --bg-sort-option: #F7F7F9;
+
+  /* TEXT */
+  --black: #000;
+  --color-dark: #1F2029;
+  --color-muted: #919698;
+  --color-pokemon-card-shavron: #BABEC2;
+
+  /* GRADIENTS */
+  --gradient-green: linear-gradient(109.73deg, #65CB9A 0%, #15D0DC 100%);
+  --gradient-purple: linear-gradient(109.73deg, #46469C 0%, #7E32E0 100%);
+  --gradient-grass: linear-gradient(180deg, #7ECD8B 0%, #89E2B3 100%);
+  --gradient-fire: linear-gradient(180deg, #E68061 0%, #DBB469 100%);
+
+  /* TYPING */
+  --type-grass: #95C24D;
+  --type-poison: #BA7EC8;
+  --type-water: #4592C3;
+  --type-ghost: #7B62A3;
+  --type-normal: #A3ACAE;
+  --type-fire: #FD7D25;
+  --type-psychic: #F366B9;
+  --type-fairy: #FDB9E9;
+  --type-flying: #A890F0;
+  --type-bug: #A8B820;
+  --type-ground: #E0C068;
+  --type-rock: #B8A038;
+  --type-electric: #F8D030;
+  --type-fighting: #C03028;
+  --type-steel: #B8B8D0;
+  --type-ice: #98D8D8;
+  --type-dragon: #7038F8;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+}
