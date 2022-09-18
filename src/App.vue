@@ -23,6 +23,9 @@
     loadPokemonListData()
   }
   
+  //TODO: team , favourite, details consent
+  //Details dynamic bg color
+  //Localstorage save state
 </script>
 
 <style scoped>
