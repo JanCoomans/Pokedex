@@ -1,6 +1,5 @@
 <template>
-    <router-link class="pokemonCard" :to="`/${pokemon.id}`">
-    <!--@click="appData.setDetails(pokemon.id)"-->
+    <router-link class="pokemonCard" :to="needsNewDetails() ? `/${pokemon.id}` : ''" @click="appData.screenFocus.details = true">
         <section class="d-flex">
             <img :src="pokemon.sprites.front_default" alt="{{pokemon.name}}">
             <span>
@@ -21,10 +20,23 @@
 
 <script setup lang="ts">
 import { pokemonStore } from '@/stores/appData';
+import { useRoute } from 'vue-router';
+//import router from '@/router';
+//const route = useRoute();
+
 const appData = pokemonStore();
 defineProps<{
     pokemon: object
 }>()
+
+
+function needsNewDetails(id: number){
+    if (appData.activeId == id) {
+        return false
+    }
+    return true
+}
+
 
 const numberFormater = (number: number) => {
     switch (true) {
@@ -39,7 +51,6 @@ const numberFormater = (number: number) => {
 
 const getPokemonById = (number: number) => {
     let selectedPokemon = appData.pokemonList.find(p => p['id'] === number);
-    
     return selectedPokemon['name'];
 }
 </script>

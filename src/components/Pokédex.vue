@@ -19,8 +19,8 @@
                     <h5>{{appData.favorites.length}} pokemons</h5>
                 </div>
             </div>
-            <div class="justify-content-center w-100">
-                <template v-for="entry in getSortedList()" :key="entry.id">
+            <div class="w-100">
+                <template v-for="entry in getSortedList()" :key="entry.name">
                     <PokemonCard v-if="applyFilter(entry.name)" :pokemon="entry" />
                 </template>
             </div>

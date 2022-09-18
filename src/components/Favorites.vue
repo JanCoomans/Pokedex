@@ -2,10 +2,16 @@
     <div id="favoritesContainer" :class="[appData.getPokedexFocus == 'favorites' ? 'focus' : 'unfocus']">
         <h1>Favorites</h1>
         <button @click="appData.unfocusPokedex()">hide screen</button>
+        <div class="d-flex flex-wrap justify-content-center w-100">
+            <template v-for="entry in appData.favorites" :key="entry.name">
+                <PokemonCard :pokemon="entry" />
+            </template>
+        </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import PokemonCard from "@/components/PokemonCard.vue";
 import { pokemonStore } from '@/stores/appData';
 const appData = pokemonStore();
 </script>
