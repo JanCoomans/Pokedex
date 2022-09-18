@@ -3,13 +3,11 @@
         <h1>Details: <span v-if="appData.getActivePokemon != undefined">{{appData.getActivePokemon.name}}</span></h1>
         <button id="unfocusButton" @click="appData.toggleDetails()">hide screen</button>
 
-        <button v-if="isInTeam()" @click="appData.removeFromTeam(appData.getActivePokemon)">unfavorite</button>
-        <button v-else @click="appData.addToTeam(appData.getActivePokemon)">favorite</button>
+        <button v-if="isActiveInTeam()" @click="appData.removeFromTeam(appData.getActivePokemon)">remove from team</button>
+        <button v-else @click="appData.addToTeam(appData.getActivePokemon)">team</button>
         
-
-        <button v-if="isFavorite()" @click="appData.removeFavorite(appData.getActivePokemon)">Remove from team</button>
-        <button v-else @click="appData.addFavorite(appData.getActivePokemon)">add to team</button>
-        
+        <button v-if="isActiveInFavorite()" @click="appData.removeFavorite(appData.getActivePokemon)">unfavorite</button>
+        <button v-else @click="appData.addFavorite(appData.getActivePokemon)">add to favorite</button>
     </div>
 </template>
 
@@ -22,12 +20,16 @@ import { watch } from "vue";
 const appData = pokemonStore();
 const route = useRoute();
 
-const isInTeam = () => {
-    return appData.team.indexOf(appData.getActivePokemon) > -1;
+const  isActiveInTeam = () => {
+    return appData.team.find(obj => {  
+        return obj.id === appData.getActivePokemon.id
+    });
 }
 
-const isFavorite = () => {
-    return appData.favorites.indexOf(appData.getActivePokemon) > -1;
+const isActiveInFavorite = () => {
+    return appData.favorites.find(obj => { 
+        return obj.id === appData.getActivePokemon.id
+    });
 }
 
 const fetchPokemonDetails = async (id: any) => {

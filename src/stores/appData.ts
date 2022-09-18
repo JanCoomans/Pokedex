@@ -86,25 +86,36 @@ export const pokemonStore = defineStore({
     addToTeam(pokemon: object){ 
       if (this.team.length < 6) {
         this.team.push(pokemon);
+        console.log(`Pokemon ${pokemon.name} added to TEAM.`);
       }
-      else alert('Team is vol!\nEen team bevat maximaal 6 pokemon.')
+      else {
+        alert('Team is vol!\nEen team bevat maximaal 6 pokemon.');
+        console.log('Error: team is full. A team has a max size of 6.');
+      }
     },
     addFavorite(pokemon: object){
       this.favorites.push(pokemon);
+      console.log(`Pokemon ${pokemon.name} added to FAVORITES.`);
     },
     removeFromTeam(pokemon: object){ 
-      console.log('shit');
-      
-      let index = this.team.indexOf(pokemon);
+      const index = this.team.findIndex(object => {
+        return object.id === pokemon.id;
+      });
       if (index > -1) {
         this.team.splice(index, 1);
+        console.log(`Pokemon ${pokemon.name} removed from TEAM.`);
       }
+      else console.log(`Error: Could not find ${pokemon.name} in TEAM.`);
     },
     removeFavorite(pokemon: object){
-      let index = this.favorites.indexOf(pokemon);
+      const index = this.favorites.findIndex(object => {
+        return object.id === pokemon.id;
+      });
       if (index > -1) {
         this.favorites.splice(index, 1);
+        console.log(`Pokemon ${pokemon.name} removed from FAVORITES.`);
       }
+      else console.log(`Error: Could not find ${pokemon.name} in FAVORITES.`);
     }
   },
   getters:{ 
