@@ -1,7 +1,15 @@
 <template>
     <div id="pokemonDetails" :class="[appData.screenFocus.details ? 'focus' : 'unfocus']">
         <h1>Details: <span v-if="appData.getActivePokemon != undefined">{{appData.getActivePokemon.name}}</span></h1>
-        <button @click="appData.toggleDetails()">hide screen</button>
+        <button id="unfocusButton" @click="appData.toggleDetails()">hide screen</button>
+
+        <button v-if="isInTeam()" @click="appData.removeFromTeam(appData.getActivePokemon)">unfavorite</button>
+        <button v-else @click="appData.addToTeam(appData.getActivePokemon)">favorite</button>
+        
+
+        <button v-if="isFavorite()" @click="appData.removeFavorite(appData.getActivePokemon)">Remove from team</button>
+        <button v-else @click="appData.addFavorite(appData.getActivePokemon)">add to team</button>
+        
     </div>
 </template>
 
@@ -13,6 +21,14 @@ import { watch } from "vue";
 
 const appData = pokemonStore();
 const route = useRoute();
+
+const isInTeam = () => {
+    return appData.team.indexOf(appData.getActivePokemon) > -1;
+}
+
+const isFavorite = () => {
+    return appData.favorites.indexOf(appData.getActivePokemon) > -1;
+}
 
 const fetchPokemonDetails = async (id: any) => {
     if (!isNaN(Number(id)) || Number(id) < 151) { /* Pokemon details gets focused if ID is valid. */
@@ -42,6 +58,7 @@ watch(
         }
     }
 )
+
 </script>
     
 <style scoped>
@@ -49,7 +66,10 @@ watch(
     width: inherit;
     min-height: 100vh;
     width: 100%;
-    background: yellow;
+}
+
+#unfocusButton{
+    display: none;
 }
 
 @media only screen and (max-width: 750px) {
@@ -63,6 +83,10 @@ watch(
 
     #pokemonDetails.focus {
         left: 0;
+    }
+
+    #unfocusButton{
+        display: block;
     }
 }
 </style>

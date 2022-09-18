@@ -9,9 +9,8 @@
   
   
   
-  //TODO: team , favourite, details consent
+  //TODO: team , favourite, details content
   //Details dynamic bg color
-  //Localstorage save state
 </script>
 
 <style scoped>

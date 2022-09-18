@@ -83,6 +83,29 @@ export const pokemonStore = defineStore({
       console.log(`Active pokemon id: ${id}`);
       this.toggleDetails();
     },
+    addToTeam(pokemon: object){ 
+      if (this.team.length < 6) {
+        this.team.push(pokemon);
+      }
+      else alert('Team is vol!\nEen team bevat maximaal 6 pokemon.')
+    },
+    addFavorite(pokemon: object){
+      this.favorites.push(pokemon);
+    },
+    removeFromTeam(pokemon: object){ 
+      console.log('shit');
+      
+      let index = this.team.indexOf(pokemon);
+      if (index > -1) {
+        this.team.splice(index, 1);
+      }
+    },
+    removeFavorite(pokemon: object){
+      let index = this.favorites.indexOf(pokemon);
+      if (index > -1) {
+        this.favorites.splice(index, 1);
+      }
+    }
   },
   getters:{ 
     sortOneCondition: (state) => {
@@ -102,7 +125,7 @@ export const pokemonStore = defineStore({
     },
     getActivePokemon: (state) => {
       return state.pokemonList.find(p => p.id === state.activeId);
-    }
+    },
   },
   persist: true
 })
