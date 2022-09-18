@@ -29,12 +29,32 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
 import SortOverlay from "@/components/SortOverlay.vue";
 import PokemonCard from "@/components/PokemonCard.vue";
+import PokemonAPI from '@/services/PokemonAPI'
 import { pokemonStore } from '@/stores/appData';
 
 const appData = pokemonStore();
+
+const loadPokemonListData = async () => {
+    try{
+        const response = await PokemonAPI.getPokemonList();
+        console.log('Succesfully retrieved pokemon data.');
+            
+        appData.pokemonList = response.data;
+    }
+      catch(error){
+        console.log(error);
+    }
+}
+if (!appData.pokemonList.length || !localStorage.getItem(localStorage.key('pokemonList')).length) {
+    /* Fetch pokemon data if Pinia and/or Localstorage is empty */
+    loadPokemonListData()
+}
+else{
+    console.log('Local save data retrieved.');
+}
+
 const applyFilter = (name: string) => {
     return new RegExp(`^${appData.filter}`).test(name);;
 }

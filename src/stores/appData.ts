@@ -104,6 +104,7 @@ export const pokemonStore = defineStore({
       return state.pokemonList.find(p => p.id === state.activeId);
     }
   },
+  persist: true
 })
 
 

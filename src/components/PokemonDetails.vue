@@ -24,7 +24,7 @@ const fetchPokemonDetails = async (id: any) => {
     
     try {
         const response = await PokemonAPI.getPokemonDetails(id);
-        console.log('Pokemon details retrieved.');
+        console.log('Pokemon detail data retrieved.');
         appData.pokemonDetails = response.data;
     }
     catch (error) {
