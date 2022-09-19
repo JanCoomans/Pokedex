@@ -17,15 +17,52 @@
   --gradient-green: linear-gradient(109.73deg, #65CB9A 0%, #15D0DC 100%);
   --gradient-purple: linear-gradient(109.73deg, #46469C 0%, #7E32E0 100%);
   --gradient-grass: linear-gradient(180deg, #7ECD8B 0%, #89E2B3 100%);
-  --gradient-fire: linear-gradient(180deg, #E68061 0%, #DBB469 100%);
+  --gradient-fire: linear-gradient(180deg, #e6a161 0%, #DBB469 100%);
+  --gradient-poison: linear-gradient(180deg, #ba7ec8 0%, #e0b2d6 100%);
+  --gradient-water: linear-gradient(180deg, #4592C3 0%, #b2b2e0 100%);
+  --gradient-ghost: linear-gradient(180deg, #7B62A3 0%, #b376bb 100%);
+  --gradient-normal: linear-gradient(180deg, #a3adae 0%, #eeeeee 100%);
+  --gradient-psychic: linear-gradient(180deg, #F366B9 0%, #faadba 100%);
+  --gradient-fairy: linear-gradient(180deg, #dfa5cd 0%, #fcced0 100%);
+  --gradient-flying: linear-gradient(180deg, #A890F0 0%, #f19aea 100%);
+  --gradient-bug: linear-gradient(180deg, #A8B820 0%, #c1d895 100%);
+  --gradient-ground: linear-gradient(180deg, #E0C068 0%, #e6e795 100%);
+  --gradient-rock: linear-gradient(180deg, #B8A038 0%, #dfe090 100%);
+  --gradient-electric: linear-gradient(180deg, #F8D030 0%, #ebf7a9 100%);
+  --gradient-fighting: linear-gradient(180deg, #C03028 0%, #dda169 100%);
+  --gradient-steel: linear-gradient(180deg, #a3a3b9 0%, #d3c9db 100%);
+  --gradient-ice: linear-gradient(180deg, #98D8D8 0%, #c1cbe2 100%);
+  --gradient-dragon: linear-gradient(180deg, #7038F8 0%, #9c5af1 100%);
+
+  /* HEADER darkener */
+  --darken-opacity: 0.8;
+  --dark-green: 70, 148, 124;
+  --dark-purple: 75, 41, 170;
+  --dark-grass: 119, 184, 131;
+  --dark-fire: 184, 127, 74;
+  --dark-poison: 162, 109, 173;
+  --dark-water: 59, 126, 168;
+  --dark-ghost: 104, 83, 138;
+  --dark-normal: 139, 146, 148;
+  --dark-psychic: 217, 91, 164;
+  --dark-fairy: 214, 156, 197;
+  --dark-flying: 150, 129, 214;
+  --dark-bug: 145, 158, 27;
+  --dark-ground: 199, 170, 91;
+  --dark-rock: 184, 160, 56;
+  --dark-electric: 209, 175, 40;
+  --dark-fighting: 192, 48, 40;
+  --dark-steel: 150, 150, 171;
+  --dark-ice: 125, 179, 179;
+  --dark-dragon: 96, 48, 209;
 
   /* TYPING */
   --type-grass: #95C24D;
+  --type-fire: #FD7D25;
   --type-poison: #BA7EC8;
   --type-water: #4592C3;
   --type-ghost: #7B62A3;
   --type-normal: #A3ACAE;
-  --type-fire: #FD7D25;
   --type-psychic: #F366B9;
   --type-fairy: #FDB9E9;
   --type-flying: #A890F0;

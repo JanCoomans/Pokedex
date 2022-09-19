@@ -3,7 +3,7 @@
         <section class="d-flex">
             <img :src="pokemon.sprites.front_default" alt="{{pokemon.name}}">
             <span>
-                <h3 class="sub-title text-capitalize my-5px">{{pokemon.name}}</h3>
+                <h3 class="sub-title color-black text-capitalize my-5px">{{pokemon.name}}</h3>
                 <h5 class="muted m-0">Nr.
                     {{numberFormater(pokemon.id)}}
                 </h5>

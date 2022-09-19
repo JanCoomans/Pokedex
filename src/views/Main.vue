@@ -4,14 +4,14 @@
         <section id="pokedexBaseContainer" class="d-flex justify-content-center" >
           <Pokédex />
         </section>
-        <section id="teamContainer" class="gradient-purple" :class="[appData.getPokedexFocus == 'team' ? 'focus' : 'unfocus']">
+        <section id="teamContainer" class="gradient-purple" :class="[appData.getPokedexFocus == 'team' ? 'focus' : 'unfocus']" @scroll.passive="scrolling">
           <ListOverlay :pokemonList="appData.team" :title="'Mijn team'" :bgColorClass="'gradient-purple'" />
         </section>
         <section id="favoritesContainer" class="gradient-green" :class="[appData.getPokedexFocus == 'favorites' ? 'focus' : 'unfocus']" @scroll.passive="scrolling">
           <ListOverlay :pokemonList="appData.favorites" :title="'Favorieten'" />
         </section>
       </div>
-      <section id="pokemonDetailsContainer">
+      <section id="pokemonDetailsContainer" :class="`gradient-${appData.getActivePokemon.types[0].type.name}`" @scroll.passive="scrolling">
         <PokemonDetails />
       </section>
   </main>

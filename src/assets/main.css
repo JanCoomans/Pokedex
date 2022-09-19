@@ -11,11 +11,14 @@
 
 /*------ HEADER ------*/
 .header{
-    opacity: .8;
+    display: flex;
     padding: 55px 17px 9px 9px;
     color: var(--white);
-    margin: 0 -16px;
     transition: 0.5s;
+}
+
+.overlayBlock .header{
+    margin: 0 -16px;
 }
 
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
@@ -53,21 +56,20 @@
     cursor: pointer;
 }
 
-.btn-set{/*change page-button*/
+.btn-lg{/*change page-button*/
     height: 44px;
     width: 100%;
+    max-width: 343px;
     border-radius: 50px;
-
-    font-weight: 700;
-    font-size: 17px;
-    line-height: 20px;
-    color: var(--white);
+    border: none;
+    color: var(--white);;
     background: var(--color-dark);
 }
 
 /*------ FONT TYPES -------*/
 .text-gradient-green{
     background: -webkit-linear-gradient(#65CB9A 0%, #15D0DC 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -89,11 +91,10 @@
 }
 
 /* Pokemon name text */
-.sub-title {
+.sub-title, .btn-lg {
     font-weight: 700;
     font-size: 17px;
     line-height: 20px;
-    color: var(--black);
 }
 
 /* Sub-title text */
@@ -134,6 +135,15 @@
 
 .pokemon-type + .pokemon-type{
     margin-left: 5px;
+}
+
+/**/
+.color-white{
+    color: var(--white);
+}
+
+.color-black{
+    color: var(--black);
 }
 
 /*------ TYPE COLORS ------*/
@@ -208,7 +218,55 @@
 .bg-none{background: rgba(0, 0, 0, 0)!important;}
 
 .gradient-purple{background: var(--gradient-purple);}
-.gradient-purple .header{background: rgba(119, 184, 131, 0.8);}
+.gradient-purple .header{background: rgba(var(--dark-purple), var(--darken-opacity))}
 
 .gradient-green{background: var(--gradient-green);}
-.gradient-green .header{background: rgba(119, 184, 131, 0.8);}
+.gradient-green .header{background: rgba(var(--dark-green), var(--darken-opacity))}
+
+.gradient-grass{background: var(--gradient-grass);}
+.gradient-grass .header{background: var(--dark-grass);}
+
+.gradient-fire{background: var(--gradient-fire);}
+.gradient-fire .header{background: var(--dark-fire);}
+
+.gradient-poison{background: var(--gradient-poison);}
+.gradient-poison .header{background: var(--dark-poison);}
+
+.gradient-water{background: var(--gradient-water);}
+.gradient-water .header{background: var(--dark-water);}
+
+.gradient-normal{background: var(--gradient-normal);}
+.gradient-normal .header{background: var(--dark-normal);}
+
+.gradient-psychic{background: var(--gradient-psychic);}
+.gradient-psychic .header{background: var(--dark-psychic);}
+
+.gradient-fairy{background: var(--gradient-fairy);}
+.gradient-fairy .header{background: var(--dark-fairy);}
+
+.gradient-flying{background: var(--gradient-flying);}
+.gradient-flying .header{background: var(--dark-flying);}
+
+.gradient-bug{background: var(--gradient-bug);}
+.gradient-bug .header{background: var(--dark-bug);}
+
+.gradient-ground{background: var(--gradient-ground);}
+.gradient-ground .header{background: var(--dark-ground);}
+
+.gradient-rock{background: var(--gradient-rock);}
+.gradient-rock .header{background: var(--dark-rock);}
+
+.gradient-electric{background: var(--gradient-electric);}
+.gradient-electric .header{background: var(--dark-electric);}
+
+.gradient-fighting{background: var(--gradient-fighting);}
+.gradient-fighting .header{background: var(--dark-fighting);}
+
+.gradient-steel{background: var(--gradient-steel);}
+.gradient-steel .header{background: var(--dark-steel);}
+
+.gradient-ice{background: var(--gradient-ice);}
+.gradient-ice .header{background: var(--dark-ice);}
+
+.gradient-dragon{background: var(--gradient-dragon);}
+.gradient-dragon .header{background: var(--dark-dragon);}

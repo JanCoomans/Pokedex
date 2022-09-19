@@ -1,8 +1,8 @@
 <template>
-    <div id="overlayBlock">
+    <div class="overlayBlock">
         <header class="header sticky-top bg-none">
             <div @click="appData.unfocusPokedex()" class="cursor-pointer d-flex">
-                <i class="fa-solid fa-chevron-left shaveron"></i> <h5>Terug </h5>
+                <i class="fa-solid fa-chevron-left shaveron"></i> <h5>Terug</h5>
             </div>
         </header>
         <div>
@@ -30,14 +30,14 @@
     
 <style scoped>
 
-#overlayBlock {
+.overlayBlock {
     position: relative;
     width: 100%;
     max-width: 375px;
     padding: 0 16px;
 }
 
-#overlayBlock .title-light {
+.overlayBlock .title-light {
     margin: 11px 0 25px 0;
 }
 </style>

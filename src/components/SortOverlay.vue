@@ -21,7 +21,7 @@
                 <h4 class="sort-text"><i class="fa-solid fa-arrow-down-1-9"></i>Numeriek aflopend</h4>
                 <i class="fa-solid fa-check text-gradient-green" v-if="appData.sortFourCondition"></i>
             </div>
-            <button type="button" class="btn-set" @click="appData.applySortingMethod()">Toepassen</button>
+            <button type="button" class="btn-lg color-white" @click="appData.applySortingMethod()">Toepassen</button>
         </div>
     </div>
 </template>
@@ -130,7 +130,7 @@ const appData = pokemonStore();
     margin-right: 7px;
 }
 
-.btn-set{
+.btn-lg{
     margin-left: 3px;
     margin-top: 25px;
 }
