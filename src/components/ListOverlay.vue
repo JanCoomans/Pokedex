@@ -35,7 +35,6 @@
 <style scoped>
 
 .overlayBlock {
-    position: inherit;
     width: 100%;
 }
 
