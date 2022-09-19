@@ -12,13 +12,12 @@
 /*------ HEADER ------*/
 .header{
     display: flex;
-    padding: 55px 17px 9px 9px;
+    justify-content: center;
     color: var(--white);
     transition: 0.5s;
-}
-
-.overlayBlock .header{
-    margin: 0 -16px;
+    width: 100%;
+    position: fixed;
+    top: 0;
 }
 
 @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
@@ -37,6 +36,31 @@
     font-size: 17px;
     line-height: 22px;
     margin: 0 0 0 5px;
+}
+
+.header-content, .header-content-full{
+    width: 100%;
+    padding: 55px 17px 9px 10px;
+}
+
+.header-content{
+    max-width: var(--content-width);
+}
+
+.content-block{
+    display: flex;
+    justify-content: center;
+}
+
+.list-content{
+    width: 100%;
+    max-width: var(--content-width);
+    padding: 0px 16px 35px 16px;
+}
+
+.header-filler{
+    height: 88px;
+    width: 100%;
 }
 
 /*------ GENERAL -------*/
@@ -270,3 +294,14 @@
 
 .gradient-dragon{background: var(--gradient-dragon);}
 .gradient-dragon .header{background: var(--dark-dragon);}
+
+
+/*------ RESPONSIVE ------*/
+.mobile-only {
+    display: none;
+}
+@media only screen and (max-width: 750px) {
+    .mobile-only {
+        display: block;
+    }
+}

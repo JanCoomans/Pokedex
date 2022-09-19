@@ -1,4 +1,5 @@
 :root {
+  --content-width: 375px;
   /**/
   --white: #FFF;
   --lighter-gray: #F9F9F9;
