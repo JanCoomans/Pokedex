@@ -205,11 +205,10 @@
 }
 
 /*------ GRADIENTS ------*/
-.gradient-fade{background: rgba(0, 0, 0, 0);}
+.bg-none{background: rgba(0, 0, 0, 0)!important;}
 
 .gradient-purple{background: var(--gradient-purple);}
-.gradient-purple .gradient-solid{background: rgba(119, 184, 131, 0.8);}
+.gradient-purple .header{background: rgba(119, 184, 131, 0.8);}
 
 .gradient-green{background: var(--gradient-green);}
-.gradient-green .gradient-solid{background: rgba(119, 184, 131, 0.8);}
 .gradient-green .header{background: rgba(119, 184, 131, 0.8);}

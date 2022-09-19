@@ -72,7 +72,7 @@ const appData = pokemonStore();
 }
 
 #sortOptions.inactive #sortOverlay{
-    bottom: -50%;
+    bottom: -356px;
 }
 
 #closesortOverlay{

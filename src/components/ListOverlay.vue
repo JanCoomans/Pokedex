@@ -1,6 +1,6 @@
 <template>
     <div id="overlayBlock">
-        <header class="header sticky-top">
+        <header class="header sticky-top bg-none">
             <div @click="appData.unfocusPokedex()" class="cursor-pointer d-flex">
                 <i class="fa-solid fa-chevron-left shaveron"></i> <h5>Terug </h5>
             </div>

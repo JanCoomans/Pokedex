@@ -7,7 +7,7 @@
         <section id="teamContainer" class="gradient-purple" :class="[appData.getPokedexFocus == 'team' ? 'focus' : 'unfocus']">
           <ListOverlay :pokemonList="appData.team" :title="'Mijn team'" :bgColorClass="'gradient-purple'" />
         </section>
-        <section id="favoritesContainer" class="gradient-green" :class="[appData.getPokedexFocus == 'favorites' ? 'focus' : 'unfocus']">
+        <section id="favoritesContainer" class="gradient-green" :class="[appData.getPokedexFocus == 'favorites' ? 'focus' : 'unfocus']" @scroll.passive="scrolling">
           <ListOverlay :pokemonList="appData.favorites" :title="'Favorieten'" />
         </section>
       </div>
@@ -26,6 +26,17 @@ const appData = pokemonStore();
 
 //const name = () => {} //function
 //const name = computed(() => {}) //computed
+
+const scrolling = function (e: any) {
+  let target = e.target.getElementsByClassName('header')[0];
+  
+  if (e.target.scrollTop == 0) {
+    target.classList.add("bg-none");
+  }
+  else{
+    target.classList.remove("bg-none");
+  }
+}
 
 </script>
 
