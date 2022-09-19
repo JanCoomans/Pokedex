@@ -9,6 +9,33 @@
     Pokemon details: 30
 */
 
+/*------ HEADER ------*/
+.header{
+    opacity: .8;
+    padding: 55px 17px 9px 9px;
+    color: var(--white);
+    margin: 0 -16px;
+    transition: 0.5s;
+}
+
+@supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    .header {
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+    }
+  }
+
+.header .shaveron{  
+    font-size: 24px;
+}
+
+.header h5{
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 22px;
+    margin: 0 0 0 5px;
+}
+
 /*------ GENERAL -------*/
 .h-fit{
     height: fit-content;
@@ -26,7 +53,7 @@
     cursor: pointer;
 }
 
-.btn-set{
+.btn-set{/*change page-button*/
     height: 44px;
     width: 100%;
     border-radius: 50px;
@@ -101,9 +128,8 @@
     font-size: 12px;
     line-height: 14px;
     color: var(--white);
-
     border-radius: 100px;
-    padding: 3px 10px 5px 10px;
+    padding: 3px 10px 4px 10px;
 }
 
 .pokemon-type + .pokemon-type{
@@ -111,69 +137,79 @@
 }
 
 /*------ TYPE COLORS ------*/
-.grass {
+.type-grass {
     background: var(--type-grass);
 }
-.poison {
+.type-poison {
     background: var(--type-poison);
 }
 
-.water {
+.type-water {
     background: var(--type-water);
 }
 
-.ghost {
+.type-ghost {
     background: var(--type-ghost);
 }
 
-.normal {
+.type-normal {
     background: var(--type-normal);
 }
 
-.fire {
+.type-fire {
     background: var(--type-fire);
 }
 
-.psychic {
+.type-psychic {
     background: var(--type-psychic);
 }
 
-.fairy {
+.type-fairy {
     background: var(--type-fairy);
 }
 
-.flying {
+.type-flying {
     background: var(--type-flying);
 }
 
-.bug {
+.type-bug {
     background: var(--type-bug);
 }
 
-.ground {
+.type-ground {
     background: var(--type-ground);
 }
 
-.rock {
+.type-rock {
     background: var(--type-rock);
 }
 
-.electric {
+.type-electric {
     background: var(--type-electric);
 }
 
-.fighting {
+.type-fighting {
     background: var(--type-fighting);
 }
 
-.steel {
+.type-steel {
     background: var(--type-steel);
 }
 
-.ice {
+.type-ice {
     background: var(--type-ice);
 }
 
-.dragon {
+.type-dragon {
     background: var(--type-dragon);
 }
+
+/*------ GRADIENTS ------*/
+.gradient-fade{background: rgba(0, 0, 0, 0);}
+
+.gradient-purple{background: var(--gradient-purple);}
+.gradient-purple .gradient-solid{background: rgba(119, 184, 131, 0.8);}
+
+.gradient-green{background: var(--gradient-green);}
+.gradient-green .gradient-solid{background: rgba(119, 184, 131, 0.8);}
+.gradient-green .header{background: rgba(119, 184, 131, 0.8);}

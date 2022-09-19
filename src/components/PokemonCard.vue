@@ -11,16 +11,16 @@
         </section>
 
         <section class="d-flex align-items-center h-fit mt-5px">
-            <div v-for="entry in pokemon.types" :key="entry.slot" class="pokemon-type" :class="[entry.type.name]">
+            <div v-for="entry in pokemon.types" :key="entry.slot" class="pokemon-type" :class="`type-${[entry.type.name]}`">
                 {{entry.type.name}}</div>
-            <i class="fa-solid fa-chevron-right shavron"></i>
+            <i class="fa-solid fa-chevron-right shevron"></i>
         </section>
     </router-link>
 </template>
 
 <script setup lang="ts">
 import { pokemonStore } from '@/stores/appData';
-import { useRoute } from 'vue-router';
+//import { useRoute } from 'vue-router';
 //import router from '@/router';
 //const route = useRoute();
 
@@ -61,11 +61,12 @@ const getPokemonById = (number: number) => {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 340px;
+    max-width: 343px;
     padding: 10px 14px 10px 13px;
     background: var(--white);
     box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.04);
     border-radius: 10px;
+    margin-left: 3px;
     text-decoration: none;
 }
 
@@ -79,8 +80,8 @@ const getPokemonById = (number: number) => {
     margin-right: 16px;
 }
 
-.pokemonCard .shavron {
-    color: var(--color-pokemon-card-shavron);
+.pokemonCard .shevron {
+    color: var(--color-pokemon-card-shevron);
     font-size: 11px;
     margin-left: 15px;
 }

@@ -1,31 +1,31 @@
 <template>
-    <section id="pokedexBase" class="d-flex justify-content-center">
-        <SortOverlay />
-        
-        <div id="pokedex">
-            <div id="sortIcons">
-                <i class="fa-solid fa-filter cursor-pointer" @click="appData.toggleSortScreen()"></i>
-                <i class="fa-solid fa-arrow-right-arrow-left rotate-90 cursor-pointer" @click="appData.toggleSortDirection()"></i>
+
+    <SortOverlay />
+
+    <div id="pokedex">
+        <div id="sortIcons">
+            <i class="fa-solid fa-filter cursor-pointer" @click="appData.toggleSortScreen()"></i>
+            <i class="fa-solid fa-arrow-right-arrow-left rotate-90 cursor-pointer"
+                @click="appData.toggleSortDirection()"></i>
+        </div>
+        <h1 class="title-dark">Pokédex</h1>
+        <input id="searchFilter" v-model="appData.filter" placeholder="&#xF002; Pokemon zoeken" type="text">
+        <div id="buttonCards" class="d-flex justify-content-between">
+            <div id="teamCard" class="button-card" @click="appData.focusTeam()">
+                <h3>Mijn team</h3>
+                <h5>{{appData.team.length}} pokemons</h5>
             </div>
-            <h1 class="title-dark">Pokédex</h1>
-            <input id="searchFilter" v-model="appData.filter" placeholder="&#xF002; Pokemon zoeken" type="text">
-            <div id="buttonCards" class="d-flex justify-content-between">
-                <div id="teamCard" class="button-card" @click="appData.focusTeam()">
-                    <h3>Mijn team</h3>
-                    <h5>{{appData.team.length}} pokemons</h5>
-                </div>
-                <div id="favoritesCard" class="button-card" @click="appData.focusFavorites()">
-                    <h3>Favorieten</h3>
-                    <h5>{{appData.favorites.length}} pokemons</h5>
-                </div>
-            </div>
-            <div class="w-100">
-                <template v-for="entry in getSortedList()" :key="entry.name">
-                    <PokemonCard v-if="applyFilter(entry.name)" :pokemon="entry" />
-                </template>
+            <div id="favoritesCard" class="button-card" @click="appData.focusFavorites()">
+                <h3>Favorieten</h3>
+                <h5>{{appData.favorites.length}} pokemons</h5>
             </div>
         </div>
-    </section>
+        <div class="w-100">
+            <template v-for="entry in getSortedList()" :key="entry.name">
+                <PokemonCard v-if="applyFilter(entry.name, entry.id)" :pokemon="entry" />
+            </template>
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
@@ -37,13 +37,13 @@ import { pokemonStore } from '@/stores/appData';
 const appData = pokemonStore();
 
 const loadPokemonListData = async () => {
-    try{
+    try {
         const response = await PokemonAPI.getPokemonList();
         console.log('Succesfully retrieved pokemon data.');
-            
+
         appData.pokemonList = response.data;
     }
-      catch(error){
+    catch (error) {
         console.log(error);
     }
 }
@@ -51,22 +51,22 @@ if (!appData.pokemonList.length || !localStorage.getItem(localStorage.key('pokem
     /* Fetch pokemon data if Pinia and/or Localstorage is empty */
     loadPokemonListData()
 }
-else{
+else {
     console.log('Local save data retrieved.');
 }
 
-const applyFilter = (name: string) => {
-    return new RegExp(`^${appData.filter}`).test(name);;
+const applyFilter = (name: string, id: number) => {
+    return new RegExp(`^${appData.filter}`).test(name) || new RegExp(`^${appData.filter}`).test(id.toString());
 }
 
 const getSortedList = () => {
     let list = appData.pokemonList;
-    switch(true) {
+    switch (true) {
         case appData.sortOneCondition:
             return list.sort((a: { name: String; }, b: { name: String; }) => {
                 let pa = a['name'].toLowerCase(),
                     pb = b['name'].toLowerCase();
-                    
+
                 if (pa < pb) {
                     return 1;
                 }
@@ -75,9 +75,9 @@ const getSortedList = () => {
                 }
                 return 0;
             });
-          break;
+            break;
         case appData.sortTwoCondition:
-            return list.sort((a: { name: String; }, b: { name: String; })=> {
+            return list.sort((a: { name: String; }, b: { name: String; }) => {
                 let pa = a['name'].toLowerCase(),
                     pb = b['name'].toLowerCase();
 
@@ -89,17 +89,17 @@ const getSortedList = () => {
                 }
                 return 0;
             });
-          break;
+            break;
         case appData.sortThreeCondition:
-          return list.sort((a: { id: number; }, b: { id: number; }) => {
-            return b.id - a.id;
-          });
-          break;
+            return list.sort((a: { id: number; }, b: { id: number; }) => {
+                return b.id - a.id;
+            });
+            break;
         case appData.sortFourCondition:
             return list.sort((a: { id: number; }, b: { id: number; }) => {
                 return a.id - b.id;
             });
-        break;
+            break;
         default:
             return list;
     }
@@ -109,13 +109,8 @@ const getSortedList = () => {
 <style scoped>
 /*------ POKEDEX ------*/
 /* General */
-#pokedexBase{
-    width: inherit;
-    min-height: 100vh;
-    background: var(--lighter-gray);
-}
 
-#pokedex{
+#pokedex {
     width: 100%;
     max-width: 375px;
     padding: 51px 16px;
@@ -123,15 +118,16 @@ const getSortedList = () => {
 }
 
 /* Spacing */
-.title-dark{
+.title-dark {
     margin-bottom: 14px;
 }
 
-#sortIcons, #searchFilter{
+#sortIcons,
+#searchFilter {
     margin-bottom: 19px;
 }
 
-#buttonCards{
+#buttonCards {
     margin-bottom: 20px;
 }
 
@@ -140,31 +136,31 @@ const getSortedList = () => {
     text-align: right;
 }
 
-#sortIcons i{
+#sortIcons i {
     font-size: 18px;
 }
 
-#sortIcons i:not(:last-of-type){
+#sortIcons i:not(:last-of-type) {
     padding-right: 10px;
 }
 
-.rotate-90{
+.rotate-90 {
     transform: rotate(90deg);
 }
 
 /* Searchbar */
-#searchFilter{
+#searchFilter {
     width: 100%;
     height: 36px;
     padding: 8px 7px;
     border-radius: 10px;
     border: none;
     background: var(--bg-searchbar);
-    font-family:Arial, FontAwesome;
+    font-family: Arial, FontAwesome;
 }
 
 /* button-cards */
-.button-card{
+.button-card {
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -175,7 +171,7 @@ const getSortedList = () => {
     padding: 10px 15px;
 }
 
-.button-card h3{
+.button-card h3 {
     font-style: normal;
     font-weight: 700;
     font-size: 18px;
@@ -184,7 +180,7 @@ const getSortedList = () => {
     margin: 0 0 3px 0;
 }
 
-#buttonCards h5{
+#buttonCards h5 {
     font-weight: 400;
     font-size: 15px;
     line-height: 22px;
@@ -192,13 +188,12 @@ const getSortedList = () => {
     margin: 0;
 }
 
-#teamCard{
+#teamCard {
     background: var(--gradient-purple);
 }
 
-#favoritesCard{
+#favoritesCard {
     background: var(--gradient-green);
 }
-
 </style>
     
