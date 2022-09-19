@@ -29,6 +29,8 @@ const appData = pokemonStore();
 
 const scrolling = function (e: any) {
   let target = e.target.getElementsByClassName('header')[0];
+  console.log(e.target.scrollTop);
+  
   
   if (e.target.scrollTop == 0) {
     target.classList.add("bg-none");

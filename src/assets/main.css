@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     color: var(--white);
-    transition: 0.5s;
+    transition:background 0.5s;
     width: 100%;
     position: fixed;
     top: 0;
@@ -297,11 +297,12 @@
 
 
 /*------ RESPONSIVE ------*/
-.mobile-only {
-    display: none;
-}
+
 @media only screen and (max-width: 750px) {
+}
+
+@media screen and (min-width: 750px) {
     .mobile-only {
-        display: block;
+        display: none!important;
     }
 }

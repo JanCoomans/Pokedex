@@ -1,15 +1,15 @@
 <template>
     <div id="pokemonDetails">
-        <header class="header sticky-top bg-none">
+        <header class="header bg-none">
             <div class="header-content-full d-flex">
-                <div @click="appData.toggleDetails()" class="cursor-pointer col-2 p-0">
+                <div @click="appData.toggleDetails()" class="col-3 p-0 cursor-pointer">
                     <span class="mobile-only d-flex">
                         <i class="fa-solid fa-chevron-left shaveron"></i>
                         <h5>Terug</h5>
                     </span>
                 </div>
-                <div class="col-8 p-0 text-center sub-title text-capitalize"><span class="mobile-only">{{appData.getActivePokemon.name}}</span></div>
-                <div class="col-2 p-0 text-right favoriteButton">
+                <div class="col-6 p-0 text-center sub-title text-capitalize"><span class="mobile-only">-{{appData.getActivePokemon.name}}-</span></div>
+                <div class="col-3 p-0 text-right favoriteButton">
                     <div v-if="isActiveInFavorite()" @click="appData.removeFavorite(appData.getActivePokemon)"
                         class="cursor-pointer">
                         <i class="fa-solid fa-heart"></i><!-- Favorited (solid hearth) -->
@@ -92,7 +92,7 @@ watch(
 <style scoped>
 #pokemonDetails {
     position: relative;
-    width: inherit;
+    width: 100%;
     min-height: 100%;
     width: 100%;
 }
@@ -110,5 +110,11 @@ watch(
 
 .favoriteButton i {
     font-size: 19px;
+}
+
+@media screen and (min-width: 750px) {
+    #pokemonDetails .header {
+        width: calc(100% - var(--content-width));
+    }
 }
 </style>

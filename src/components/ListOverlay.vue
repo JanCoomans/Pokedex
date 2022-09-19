@@ -35,12 +35,17 @@
 <style scoped>
 
 .overlayBlock {
-    position: relative;
+    position: inherit;
     width: 100%;
 }
 
 .overlayBlock .title-light {
     margin: 0 0 25px 0;
+}
+@media screen and (min-width: 750px) {
+    .overlayBlock, .overlayBlock .header {
+        width: var(--content-width);
+    }
 }
 
 </style>
