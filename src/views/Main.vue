@@ -11,7 +11,7 @@
           <ListOverlay :pokemonList="appData.favorites" :title="'Favorieten'" />
         </section>
       </div>
-      <section id="pokemonDetailsContainer" :class="[appData.screenFocus.details ? 'focus' : 'unfocus', `gradient-${appData.getActivePokemon.types[0].type.name}`]" @scroll.passive="scrolling" >
+      <section id="pokemonDetailsContainer" :class="[appData.screenFocus.details ? 'focus' : 'unfocus', `gradient-${[appData.getActivePokemon != undefined ? appData.getActivePokemon.types[0].type.name : '']}`]" @scroll.passive="scrolling" >
         <PokemonDetails />
       </section>
   </main>

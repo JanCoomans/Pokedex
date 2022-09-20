@@ -137,7 +137,8 @@ export const pokemonStore = defineStore({
       return state.screenFocus.pokedex
     },
     getActivePokemon: (state) => {
-      return state.pokemonList.find(p => p.id === state.activeId);
+      let activePokemon = state.pokemonList.find(p => p.id === state.activeId);
+      return activePokemon == undefined ? {} : activePokemon;
     },
     getStats: (state) => {
       let stats = state.pokemonDetails.stats;
