@@ -1,5 +1,5 @@
 <template>
-    <router-link class="pokemonCard shadow-soft" :to="needsNewDetails() ? `/${pokemon.id}` : ''" @click="appData.screenFocus.details = true">
+    <router-link class="pokemonCard shadow-soft" :class="[muted ? 'bg-muted' : 'bg-white']" :to="needsNewDetails() ? `/${pokemon.id}` : ''" @click="appData.screenFocus.details = true">
         <section class="d-flex">
             <img :src="pokemon.sprites.front_default" alt="{{pokemon.name}}">
             <span>
@@ -26,7 +26,8 @@ import { pokemonStore } from '@/stores/appData';
 
 const appData = pokemonStore();
 defineProps<{
-    pokemon: object
+    pokemon: object,
+    muted?: Boolean
 }>()
 
 

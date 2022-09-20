@@ -21,8 +21,8 @@
             </div>
         </div>
         <div class="w-100">
-            <template v-for="entry in getSortedList()" :key="entry.name">
-                <PokemonCard v-if="applyFilter(entry.name, entry.id)" :pokemon="entry" />
+            <template v-for="entry in getSortedList()" :key="entry.id">
+                <PokemonCard v-if="applyFilter(entry.name, entry.id)" :pokemon="entry"/>
             </template>
         </div>
     </div>

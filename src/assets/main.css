@@ -180,6 +180,18 @@
 }
 
 /**/
+.bg-muted{
+    background: var(--bg-muted);
+}
+
+.bg-white{
+    background: var(--white);
+}
+
+.bg-black{
+    background: var(--black);
+}
+
 .color-white{
     color: var(--white);
 }

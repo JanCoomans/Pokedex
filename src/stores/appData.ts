@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia';
-import { Result } from 'postcss';
 
 export const pokemonStore = defineStore({
   id: 'appData',
@@ -147,43 +146,43 @@ export const pokemonStore = defineStore({
       let total = 0;
 
       for (const [index, value] of Object.entries(stats)) {
-          let stat = {}
+        let stat = {}
 
-          baseStats.push(
-              {id: index, value: value['base_stat']}
-          );
-          stat.id = index;
-          
-          if (value.stat.name == 'hp') {
-            stat.name = `HP`;
-          } else if (value.stat.name == 'special-attack') {
-            stat.name = `Sp. Atk`;
-          }else if (value.stat.name == 'special-defense') {
-            stat.name = `Sp. Def`;
-          }else {
-            stat.name = value.stat.name;
-          }
+        baseStats.push(
+          { id: index, value: value['base_stat'] }
+        );
+        stat.id = index;
 
-          stat.value = value['base_stat'];
-          total += value['base_stat'];
-          newStats[index] = stat;
+        if (value.stat.name == 'hp') {
+          stat.name = `HP`;
+        } else if (value.stat.name == 'special-attack') {
+          stat.name = `Sp. Atk`;
+        } else if (value.stat.name == 'special-defense') {
+          stat.name = `Sp. Def`;
+        } else {
+          stat.name = value.stat.name;
+        }
+
+        stat.value = value['base_stat'];
+        total += value['base_stat'];
+        newStats[index] = stat;
       }
 
       /* Sort stats from highest to lowest */
       baseStats.sort((a: { value: number; }, b: { value: number; }) => {
-          return a.value - b.value;
+        return a.value - b.value;
       });
 
       /* Assign stat color */
       for (var i = 0; i < baseStats.length; i++) {
-          if (i < 3) {
-              newStats[baseStats[i].id].color = 'low-stat';
-          }
-          else {
-              newStats[baseStats[i].id].color = 'high-stat';
-          }
+        if (i < 3) {
+          newStats[baseStats[i].id].color = 'low-stat';
+        }
+        else {
+          newStats[baseStats[i].id].color = 'high-stat';
+        }
       }
-      
+
       return newStats;
     },
     getStatsTotal: (state) => {
@@ -206,6 +205,28 @@ export const pokemonStore = defineStore({
         results.push(Math.round((values[index] / sum) * 100))
       }
       return results;
+    },
+    getEvolutionChain: (state) => {
+      let evolutionChain = state.pokemonEvolutionChain;
+      let chainNames = [];
+      let pokemonData = []
+
+      chainNames.push(evolutionChain.chain.species.name);
+      if (evolutionChain.chain['evolves_to'][0] != undefined) {
+        chainNames.push(evolutionChain.chain['evolves_to'][0].species.name);
+
+        if (evolutionChain.chain['evolves_to'][0]['evolves_to'][0] != undefined) {
+          chainNames.push(evolutionChain.chain['evolves_to'][0]['evolves_to'][0].species.name);
+        }
+      }
+
+      for (let index = 0; index < chainNames.length; index++) {
+        let search = state.pokemonList.find(p => p.name === chainNames[index]);
+        if (search) {
+          pokemonData.push(search)
+        }
+      }
+      return pokemonData;
     }
   },
   persist: true

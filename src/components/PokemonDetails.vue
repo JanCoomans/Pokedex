@@ -69,7 +69,7 @@
                                 <h5 class="muted">Vaardigheden</h5>
                                 <h5 class="text-regular text-capitalize">{{appData.pokemonDetails.abilities[0].ability.name}}</h5>
                                 <h5 class="text-regular text-capitalize" v-if="appData.pokemonDetails.abilities[1]">
-                                    &#160;-&#160;{{appData.pokemonDetails.abilities[1].ability.name}}
+                                    &#160;|&#160;{{appData.pokemonDetails.abilities[1].ability.name}}
                                 </h5>
                                 <!--<h5 v-for="(entry, index) in appData.pokemonDetails.abilities" :key="entry.slot"
                                     class="text-regular text-capitalize">
@@ -112,6 +112,9 @@
                 </div>
                 <div id="evolution" class="spaced-top">
                     <h3 class="small-title">evolutie</h3>
+                    <template v-for="entry in appData.getEvolutionChain" :key="entry.name">
+                        <PokemonCard :pokemon="entry" :muted="isActiveName(entry.name)"/>
+                    </template>
                 </div>
             </section>
         </main>
@@ -127,12 +130,17 @@
 
 <script setup lang="ts">
 import PokemonAPI from '@/services/PokemonAPI';
+import PokemonCard from "@/components/PokemonCard.vue";
 import { pokemonStore } from '@/stores/appData';
 import { useRoute } from 'vue-router';
 import { watch } from "vue";
 
 const appData = pokemonStore();
 const route = useRoute();
+
+const isActiveName = (name: string) => {
+    return appData.getActivePokemon.name === name
+}
 
 
 watch(
@@ -200,7 +208,7 @@ const fetchPokemonDetails = async (id: any) => {
 
     /* Evolution-chain */
     try {
-        const response = await PokemonAPI.getPokemonEvolutionChain(id);
+        const response = await PokemonAPI.getPokemonEvolutionChain(appData.pokemonSpecies['evolution_chain'].url);
         console.log('Pokemon evolution-chain data retrieved.');
         appData.pokemonEvolutionChain = response.data;
     }

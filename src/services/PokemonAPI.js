@@ -10,7 +10,7 @@ export default {
     getPokemonSpecies(id) {
         return API().get(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
     },
-    getPokemonEvolutionChain(id) {
-        return API().get(`https://pokeapi.co/api/v2/evolution-chain/${id}`)
+    getPokemonEvolutionChain(url) {
+        return API().get(url)
     },
 }
