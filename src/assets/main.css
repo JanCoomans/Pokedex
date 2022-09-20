@@ -40,7 +40,7 @@
 
 .header-content, .header-content-full{
     width: 100%;
-    padding: 55px 17px 9px 10px;
+    padding: 55px 17px 11px 10px;
 }
 
 .header-content{
@@ -90,6 +90,10 @@
     background: var(--color-dark);
 }
 
+.shadow-soft{
+    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.04);
+}
+
 /*------ FONT TYPES -------*/
 .text-gradient-green{
     background: -webkit-linear-gradient(#65CB9A 0%, #15D0DC 100%);
@@ -99,6 +103,20 @@
 }
 
 /* Titles */
+.text-regular {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 18px;
+    color: var(--black);
+}
+
+.text-moveset {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: var(--color-dark);
+}
+
 .title-dark {
     color: var(--color-dark);
 }
@@ -168,6 +186,13 @@
 
 .color-black{
     color: var(--black);
+}
+
+.low-stat{
+    background: var(--bg-low-stat);
+}
+.high-stat{
+    background: var(--bg-high-stat);
 }
 
 /*------ TYPE COLORS ------*/
@@ -248,55 +273,54 @@
 .gradient-green .header{background: rgba(var(--dark-green), var(--darken-opacity))}
 
 .gradient-grass{background: var(--gradient-grass);}
-.gradient-grass .header{background: var(--dark-grass);}
+.gradient-grass .header{background: rgba(var(--dark-grass), var(--darken-opacity))}
 
 .gradient-fire{background: var(--gradient-fire);}
-.gradient-fire .header{background: var(--dark-fire);}
+.gradient-fire .header{background: rgba(var(--dark-fire), var(--darken-opacity))}
 
 .gradient-poison{background: var(--gradient-poison);}
-.gradient-poison .header{background: var(--dark-poison);}
+.gradient-poison .header{background: rgba(var(--dark-poison), var(--darken-opacity))}
 
 .gradient-water{background: var(--gradient-water);}
-.gradient-water .header{background: var(--dark-water);}
+.gradient-water .header{background: rgba(var(--dark-water), var(--darken-opacity))}
 
 .gradient-normal{background: var(--gradient-normal);}
-.gradient-normal .header{background: var(--dark-normal);}
+.gradient-normal .header{background: rgba(var(--dark-normal), var(--darken-opacity))}
 
 .gradient-psychic{background: var(--gradient-psychic);}
-.gradient-psychic .header{background: var(--dark-psychic);}
+.gradient-psychic .header{background: rgba(var(--dark-psychic), var(--darken-opacity))}
 
 .gradient-fairy{background: var(--gradient-fairy);}
-.gradient-fairy .header{background: var(--dark-fairy);}
+.gradient-fairy .header{background: rgba(var(--dark-fairy), var(--darken-opacity))}
 
 .gradient-flying{background: var(--gradient-flying);}
-.gradient-flying .header{background: var(--dark-flying);}
+.gradient-flying .header{background: rgba(var(--dark-flying), var(--darken-opacity))}
 
 .gradient-bug{background: var(--gradient-bug);}
-.gradient-bug .header{background: var(--dark-bug);}
+.gradient-bug .header{background: rgba(var(--dark-bug), var(--darken-opacity))}
 
 .gradient-ground{background: var(--gradient-ground);}
-.gradient-ground .header{background: var(--dark-ground);}
+.gradient-ground .header{background: rgba(var(--dark-ground), var(--darken-opacity))}
 
 .gradient-rock{background: var(--gradient-rock);}
-.gradient-rock .header{background: var(--dark-rock);}
+.gradient-rock .header{background: rgba(var(--dark-rock), var(--darken-opacity))}
 
 .gradient-electric{background: var(--gradient-electric);}
-.gradient-electric .header{background: var(--dark-electric);}
+.gradient-electric .header{background: rgba(var(--dark-electric), var(--darken-opacity))}
 
 .gradient-fighting{background: var(--gradient-fighting);}
-.gradient-fighting .header{background: var(--dark-fighting);}
+.gradient-fighting .header{background: rgba(var(--dark-fighting), var(--darken-opacity))}
 
 .gradient-steel{background: var(--gradient-steel);}
-.gradient-steel .header{background: var(--dark-steel);}
+.gradient-steel .header{background: rgba(var(--dark-steel), var(--darken-opacity))}
 
 .gradient-ice{background: var(--gradient-ice);}
-.gradient-ice .header{background: var(--dark-ice);}
+.gradient-ice .header{background: rgba(var(--dark-ice), var(--darken-opacity))}
 
 .gradient-dragon{background: var(--gradient-dragon);}
-.gradient-dragon .header{background: var(--dark-dragon);}
+.gradient-dragon .header{background: rgba(var(--dark-dragon), var(--darken-opacity))}
 
 
-/*------ RESPONSIVE ------*/
 
 @media only screen and (max-width: 750px) {
 }
@@ -304,5 +328,11 @@
 @media screen and (min-width: 750px) {
     .mobile-only {
         display: none!important;
+    }
+}
+
+@media screen and (max-width: 1124px) {
+    .ipad-only{
+        display: none;
     }
 }

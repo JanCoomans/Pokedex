@@ -7,6 +7,9 @@
   --bg-muted: rgba(255, 255, 255, 0.4);
   --bg-close-btn: #D8DBE3;
   --bg-sort-option: #F7F7F9;
+  --bg-stat-bar: rgba(172, 178, 193, 0.2);
+  --bg-low-stat: #DF6563;
+  --bg-high-stat: #70C18F;
 
   /* TEXT */
   --black: #000;

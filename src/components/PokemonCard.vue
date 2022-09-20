@@ -1,5 +1,5 @@
 <template>
-    <router-link class="pokemonCard" :to="needsNewDetails() ? `/${pokemon.id}` : ''" @click="appData.screenFocus.details = true">
+    <router-link class="pokemonCard shadow-soft" :to="needsNewDetails() ? `/${pokemon.id}` : ''" @click="appData.screenFocus.details = true">
         <section class="d-flex">
             <img :src="pokemon.sprites.front_default" alt="{{pokemon.name}}">
             <span>
@@ -64,9 +64,7 @@ const getPokemonById = (number: number) => {
     max-width: 343px;
     padding: 10px 14px 10px 13px;
     background: var(--white);
-    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.04);
     border-radius: 10px;
-    margin-left: 3px;
     text-decoration: none;
 }
 
