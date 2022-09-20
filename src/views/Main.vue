@@ -11,7 +11,7 @@
           <ListOverlay :pokemonList="appData.favorites" :title="'Favorieten'" />
         </section>
       </div>
-      <section id="pokemonDetailsContainer" :class="[appData.screenFocus.details ? 'focus' : 'unfocus', `gradient-${[appData.getActivePokemon != undefined ? appData.getActivePokemon.types[0].type.name : '']}`]" @scroll.passive="scrolling" >
+      <section id="pokemonDetailsContainer" :class="[appData.screenFocus.details ? 'focus' : 'unfocus', `gradient-${getActiveType()}`]" @scroll.passive="scrolling" >
         <PokemonDetails />
       </section>
   </main>
@@ -35,6 +35,13 @@ const scrolling = function (e: any) {
   else{
     target.classList.remove("bg-none");
   }
+}
+
+const getActiveType = function () {
+  if (appData.getActivePokemon.types == undefined) {
+    return '';
+  }
+  return appData.getActivePokemon.types[0].type.name;
 }
 
 </script>

@@ -29,14 +29,15 @@
                     <h1 class="title-light text-capitalize">{{appData.getActivePokemon.name}}</h1>
                 </div>
                 <div id="lightbox">
-                    <img :src="appData['pokemonDetails']['sprites']['other']['official-artwork']['front_default']"
+                    <img v-if="appData['pokemonDetails']['sprites']" :src="appData['pokemonDetails']['sprites']['other']['official-artwork']['front_default']"
                         :alt="appData['getActivePokemon']['name']">
                 </div>
                 <div id="info" class="">
                     <h3 class="small-title">info</h3>
                     <div class="info-card shadow-soft">
                         <article class="text-regular">
-                            {{appData['pokemonSpecies']['flavor_text_entries'][0]['flavor_text']}}</article>
+                            {{appData.getFlavorText}}
+                        </article>
                         <article>
                             <div class="info-entry">
                                 <h5 class="muted">Type</h5>
@@ -65,7 +66,7 @@
                                 <h5 class="muted">Geslacht</h5>
                                 <h5 class="text-regular">{{}}</h5>
                             </div>
-                            <div class="info-entry">
+                            <div v-if="appData.pokemonDetails.abilities" class="info-entry">
                                 <h5 class="muted">Vaardigheden</h5>
                                 <h5 class="text-regular text-capitalize">{{appData.pokemonDetails.abilities[0].ability.name}}</h5>
                                 <h5 class="text-regular text-capitalize" v-if="appData.pokemonDetails.abilities[1]">

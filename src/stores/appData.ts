@@ -146,6 +146,10 @@ export const pokemonStore = defineStore({
       let baseStats = [];
       let total = 0;
 
+      if (!stats) {
+        return 0
+      }
+
       for (const [index, value] of Object.entries(stats)) {
         let stat = {}
 
@@ -197,6 +201,9 @@ export const pokemonStore = defineStore({
       let sum = 0;
       let values = [];
       let results = [];
+      if (!state.pokemonDetails.length) {
+        return[]
+      }
       for (const [index, value] of Object.entries(state.pokemonDetails.stats)) {
         sum += value['base_stat'];
         values.push(value['base_stat']);
@@ -212,22 +219,30 @@ export const pokemonStore = defineStore({
       let chainNames = [];
       let pokemonData = []
 
-      chainNames.push(evolutionChain.chain.species.name);
-      if (evolutionChain.chain['evolves_to'][0] != undefined) {
-        chainNames.push(evolutionChain.chain['evolves_to'][0].species.name);
+      if (evolutionChain.chain != undefined) {
+        chainNames.push(evolutionChain.chain.species.name);
+        if (evolutionChain.chain['evolves_to'][0] != undefined) {
+          chainNames.push(evolutionChain.chain['evolves_to'][0].species.name);
 
-        if (evolutionChain.chain['evolves_to'][0]['evolves_to'][0] != undefined) {
-          chainNames.push(evolutionChain.chain['evolves_to'][0]['evolves_to'][0].species.name);
-        }
-      }
+          if (evolutionChain.chain['evolves_to'][0]['evolves_to'][0] != undefined) {
+            chainNames.push(evolutionChain.chain['evolves_to'][0]['evolves_to'][0].species.name);
+          }
 
-      for (let index = 0; index < chainNames.length; index++) {
-        let search = state.pokemonList.find(p => p.name === chainNames[index]);
-        if (search) {
-          pokemonData.push(search)
+          for (let index = 0; index < chainNames.length; index++) {
+            let search = state.pokemonList.find(p => p.name === chainNames[index]);
+            if (search) {
+              pokemonData.push(search)
+            }
+          }
         }
       }
       return pokemonData;
+    },
+    getFlavorText: (state) => {
+      if (state['pokemonSpecies']['flavor_text_entries']) {
+        return state['pokemonSpecies']['flavor_text_entries'][0]['flavor_text']
+      }
+      return ''
     }
   },
   persist: true
