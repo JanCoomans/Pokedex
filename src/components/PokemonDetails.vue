@@ -149,8 +149,10 @@ watch(
     () => {
         let statBars = document.getElementsByClassName('stat-filler');
         let statWidth = appData.getStatWidth;
-        for (let index = 0; index < statWidth.length; index++) {
-            statBars[index].style.width = `${statWidth[index]}%`;
+        if (statBars.length -1 === statWidth.length) {
+            for (let index = 0; index < statWidth.length; index++) {
+                statBars[index].style.width = `${statWidth[index]}%`;
+            }
         }
     }
 )
