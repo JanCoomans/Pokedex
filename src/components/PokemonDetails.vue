@@ -147,6 +147,8 @@ const isActiveName = (name: string) => {
 watch(
     () => appData.getStatWidth,
     () => {
+        console.log("yo");
+        
         let statBars = document.getElementsByClassName('stat-filler');
         let statWidth = appData.getStatWidth;
         for (let index = 0; index < statWidth.length; index++) {

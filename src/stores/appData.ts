@@ -201,7 +201,7 @@ export const pokemonStore = defineStore({
       let sum = 0;
       let values = [];
       let results = [];
-      if (!state.pokemonDetails.length) {
+      if (Object.keys(state.pokemonDetails).length === 0) { 
         return[]
       }
       for (const [index, value] of Object.entries(state.pokemonDetails.stats)) {
