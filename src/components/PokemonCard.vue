@@ -64,7 +64,6 @@ const getPokemonById = (number: number) => {
     width: 100%;
     max-width: 343px;
     padding: 10px 14px 10px 13px;
-    background: var(--white);
     border-radius: 10px;
     text-decoration: none;
 }

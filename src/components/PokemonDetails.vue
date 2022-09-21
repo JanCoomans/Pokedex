@@ -140,15 +140,13 @@ const appData = pokemonStore();
 const route = useRoute();
 
 const isActiveName = (name: string) => {
-    return appData.getActivePokemon.name === name
+    return appData.getActivePokemon.name != name;
 }
 
 
 watch(
     () => appData.getStatWidth,
     () => {
-        console.log("yo");
-        
         let statBars = document.getElementsByClassName('stat-filler');
         let statWidth = appData.getStatWidth;
         for (let index = 0; index < statWidth.length; index++) {
